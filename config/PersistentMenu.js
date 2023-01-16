@@ -20,6 +20,11 @@ module.exports = [
         payload: "CARE_HELP",
     },
     {
+        type: "postback",
+        title: "🏁 ပြန်စမည်။",
+        payload: "WELCOME",
+    },
+    {
         type: "web_url",
         title: "Shop now",
         url: "https://www.originalcoastclothing.com/",
