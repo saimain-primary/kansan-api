@@ -2,6 +2,7 @@ const request = require("request");
 const senderAction = require("../templates/senderAction");
 const sendMessage = require("../templates/sendMessage");
 const sendPersistentMenu = require("../templates/sendPersistentMenu");
+const sendReceipt = require("../templates/sendReceipt");
 
 module.exports = async function processPostback(event) {
     const senderID = event.sender.id;
@@ -35,8 +36,10 @@ module.exports = async function processPostback(event) {
                 await sendMessage(senderID, { text: message2 });
                 await sendMessage(senderID, { text: message3 });
                 await sendMessage(senderID, { text: "🎈" });
-                await sendPersistentMenu(senderID,true,'default');
+                await sendPersistentMenu(senderID, true, "default");
             }
         );
+    } else if (payload === "GET_RECEIPT") {
+        await sendReceipt(senderID, "test");
     }
 };
