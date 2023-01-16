@@ -1,7 +1,7 @@
 module.exports = [
     {
         type: "postback",
-        title: "🎟️ ကံစမ်းမဲ လက်မှတ် ဝယ်မည်",
+        title: "🎟️ ကံစမ်းမဲ လက်မှတ် ဝယ်မည်။",
         payload: "BUY_TICKET",
     },
     {
@@ -12,7 +12,7 @@ module.exports = [
     {
         type: "postback",
         title: "🤝 ကံစမ်းမဲ လက်မှတ် ရောင်းမည်။",
-        payload: "CHECK_TICKET",
+        payload: "SELL_TICKET",
     },
     {
         type: "postback",
