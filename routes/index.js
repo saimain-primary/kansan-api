@@ -22,6 +22,7 @@ router.get("/webhook", function (req, res) {
 });
 
 router.post("/webhook", function (req, res) {
+    console.log('req', req);
     //checking for page subscription.
     if (req.body.object === "page") {
         /* Iterate over each entry, there can be multiple entries 
