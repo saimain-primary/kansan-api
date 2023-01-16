@@ -17,7 +17,7 @@ module.exports = [
     {
         type: "postback",
         title: "💬 အကူအညီ ရယူမည်။",
-        payload: "CARE_HELP",
+        payload: "GET_RECEIPT",
     },
     {
         type: "postback",
