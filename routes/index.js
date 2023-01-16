@@ -2,7 +2,8 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const router = require("express").Router();
-
+const processPostback = require("../processes/postback");
+const processMessage = require("../processes/messages");
 
 router.get("/", function (req, res) {
     res.json({
@@ -22,7 +23,6 @@ router.get("/webhook", function (req, res) {
 });
 
 router.post("/webhook", function (req, res) {
-    console.log('req', req);
     //checking for page subscription.
     if (req.body.object === "page") {
         /* Iterate over each entry, there can be multiple entries 
