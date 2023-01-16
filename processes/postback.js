@@ -1,8 +1,9 @@
 const request = require("request");
 const senderAction = require("../templates/senderAction");
 const sendMessage = require("../templates/sendMessage");
+const sendPersistentMenu = require("../templates/sendPersistentMenu");
 
-module.exports = function processPostback(event) {
+module.exports = async function processPostback(event) {
     const senderID = event.sender.id;
     const payload = event.postback.payload;
 
@@ -16,7 +17,7 @@ module.exports = function processPostback(event) {
                 },
                 method: "GET",
             },
-            function (error, response, body) {
+            async function (error, response, body) {
                 let greeting = "";
                 if (error) {
                     console.error("Error getting user name: " + error);
@@ -26,20 +27,15 @@ module.exports = function processPostback(event) {
                     name = bodyObject.first_name;
                     greeting = "Hello " + name + ". ";
                 }
-                let message =
-                    greeting +
-                    "Welcome to Healthbot. Hope you are doing good today";
-                let message2 = "I am your nutrition tracker :-)";
-                let message3 =
-                    "please type in what you ate like: I ate chicken birayani and 2 chapatis with dal.";
-                senderAction(senderID);
-                sendMessage(senderID, { text: message }).then(() => {
-                    sendMessage(senderID, { text: message2 }).then(() => {
-                        sendMessage(senderID, { text: message3 }).then(() => {
-                            sendMessage(senderID, { text: "🎈" });
-                        });
-                    });
-                });
+                let message = greeting + "Welcome to Kansan (ကံစမ်း)";
+                let message2 = "We are the lucky draw messenger platform.";
+                let message3 = "Please see the menu for more.";
+                await senderAction(senderID);
+                await sendMessage(senderID, { text: message });
+                await sendMessage(senderID, { text: message2 });
+                await sendMessage(senderID, { text: message3 });
+                await sendMessage(senderID, { text: "🎈" });
+                await sendPersistentMenu(senderID,true,'default');
             }
         );
     }
