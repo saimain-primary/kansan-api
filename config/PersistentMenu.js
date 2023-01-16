@@ -1,13 +1,23 @@
 module.exports = [
     {
         type: "postback",
-        title: "Talk to an agent Hello",
-        payload: "CARE_HELP",
+        title: "🎟️ ကံစမ်းမဲ လက်မှတ် ဝယ်မည်",
+        payload: "BUY_TICKET",
     },
     {
         type: "postback",
-        title: "Outfit suggestions",
-        payload: "CURATION",
+        title: "🍀 ကံစမ်းမဲ လက်မှတ် စစ်မည်။",
+        payload: "CHECK_TICKET",
+    },
+    {
+        type: "postback",
+        title: "🤝 ကံစမ်းမဲ လက်မှတ် ရောင်းမည်။",
+        payload: "CHECK_TICKET",
+    },
+    {
+        type: "postback",
+        title: "💬 အကူအညီ ရယူမည်။",
+        payload: "CARE_HELP",
     },
     {
         type: "web_url",
