@@ -2,7 +2,7 @@ const request = require("request");
 const dotenv = require("dotenv");
 dotenv.config();
 
-module.exports = function senderAction(recipientId) {
+module.exports = function senderAction(recipientId, type) {
     request(
         {
             url: "https://graph.facebook.com/v15.0/me/messages",
@@ -12,7 +12,7 @@ module.exports = function senderAction(recipientId) {
             method: "POST",
             json: {
                 recipient: { id: recipientId },
-                sender_action: "typing_on",
+                sender_action: type,
             },
         },
         function (error, response, body) {

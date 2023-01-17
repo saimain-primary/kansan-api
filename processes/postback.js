@@ -33,7 +33,8 @@ module.exports = async function processPostback(event) {
                 let message =
                     greeting +
                     "\nKansan (ကံစမ်း) bot မှ ကြိုဆိုပါတယ်ခင်ဗျ။ သူငယ်ချင်း လုပ်ဆောင်လိုသောအရာကို အောက်မှာ ရွေးပေးပါခင်ဗျ။\n";
-                await senderAction(senderID);
+                await senderAction(senderID, "mark_seen");
+                await senderAction(senderID, "typing_on");
                 await sendPersistentMenu(senderID, false, "default");
                 await sendMessage(senderID, { text: message });
                 await sendGenericTemplate(senderID, WelcomeGeneric);
