@@ -28,11 +28,11 @@ module.exports = async function processPostback(event) {
                     let bodyObject = JSON.parse(body);
                     console.log(bodyObject);
                     let name = bodyObject.first_name;
-                    greeting = name + " ရေ မင်္ဂလာပါ။";
+                    greeting = name + " ရေ မင်္ဂလာပါ။ ";
                 }
                 let message =
                     greeting +
-                    "Kansan (ကံစမ်း) bot မှ ကြိုဆိုပါတယ်ခင်ဗျ။ သူငယ်ချင်း လုပ်ဆောင်လိုသောအရာကို အောက်မှာ ရွေးပေးပါခင်ဗျ။";
+                    "\n\nKansan (ကံစမ်း) bot မှ ကြိုဆိုပါတယ်ခင်ဗျ။ သူငယ်ချင်း လုပ်ဆောင်လိုသောအရာကို အောက်မှာ ရွေးပေးပါခင်ဗျ။";
                 await senderAction(senderID);
                 await sendPersistentMenu(senderID, false, "default");
                 await sendMessage(senderID, { text: message });
