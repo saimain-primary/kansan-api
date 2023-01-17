@@ -22,6 +22,8 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
         };
         nutritionalValue.push(obj);
     }
+
+    console.log("nutritional", nutritionalValue);
     let messageData = {
         attachment: {
             type: "template",
@@ -45,6 +47,7 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
             if (error) {
                 console.log("Error sending message: " + response.error);
             }
+            console.log("res", response);
         }
     );
 };
