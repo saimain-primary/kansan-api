@@ -27,16 +27,16 @@ module.exports = async function processPostback(event) {
                 } else {
                     let bodyObject = JSON.parse(body);
                     console.log(bodyObject);
-                    name = bodyObject.first_name;
-                    greeting = "Hello " + name + ". ";
+                    let name = bodyObject.first_name;
+                    greeting = name + " ရေ မင်္ဂလာပါ။";
                 }
-                let message = greeting + "Welcome to Kansan (ကံစမ်း)";
-                let message2 = "We are the lucky draw messenger platform.";
+                let message =
+                    greeting +
+                    "Kansan (ကံစမ်း) bot မှ ကြိုဆိုပါတယ်ခင်ဗျ။ သူငယ်ချင်း လုပ်ဆောင်လိုသောအရာကို အောက်မှာ ရွေးပေးပါခင်ဗျ။";
                 await senderAction(senderID);
+                await sendPersistentMenu(senderID, false, "default");
                 await sendMessage(senderID, { text: message });
-                await sendMessage(senderID, { text: message2 });
                 await sendGenericTemplate(senderID, WelcomeGeneric);
-                await sendPersistentMenu(senderID, true, "default");
             }
         );
     } else if (payload === "GET_RECEIPT") {
