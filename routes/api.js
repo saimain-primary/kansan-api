@@ -5,6 +5,8 @@ const router = require("express").Router();
 const processPostback = require("../processes/postback");
 const processMessage = require("../processes/messages");
 
+const LuckyDrawController = require("../controllers/LuckyDrawController");
+
 router.get("/", function (req, res) {
     res.json({
         status: "API Works",
@@ -41,5 +43,8 @@ router.post("/webhook", function (req, res) {
         res.sendStatus(200);
     }
 });
+
+// Lucky Draw Routes
+router.post("/lucky-draws", LuckyDrawController.saveLuckyDraw);
 
 module.exports = router;

@@ -35,9 +35,9 @@ module.exports = [
             "သူငယ်ချင်းတို့ ကံစမ်းမဲ ကို ကျွန်တော်တို့နဲ့ ပူးပေါင်းပြီး ရောင်းဖို့အတွက် အောက်တွင် နှိပ်ပေးပါဗျ",
         buttons: [
             {
-                type: "postback",
+                type: "web_url",
                 title: "🤝လက်မှတ် ရောင်းမည်",
-                payload: "SELL_TICKET",
+                payload: "https://saimain.bffsports.com/submit-lucky-draw",
             },
         ],
     },
