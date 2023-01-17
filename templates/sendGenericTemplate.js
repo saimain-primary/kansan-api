@@ -1,4 +1,6 @@
 const request = require("request");
+const dotenv = require("dotenv");
+dotenv.config();
 
 module.exports = function sendGenericTemplate(recipientId, respBody) {
     console.log(respBody);
