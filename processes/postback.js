@@ -1,5 +1,7 @@
 const request = require("request");
+const WelcomeGeneric = require("../config/WelcomeGeneric");
 const senderAction = require("../templates/senderAction");
+const sendGenericTemplate = require("../templates/sendGenericTemplate");
 const sendMessage = require("../templates/sendMessage");
 const sendPersistentMenu = require("../templates/sendPersistentMenu");
 const sendReceipt = require("../templates/sendReceipt");
@@ -30,12 +32,10 @@ module.exports = async function processPostback(event) {
                 }
                 let message = greeting + "Welcome to Kansan (ကံစမ်း)";
                 let message2 = "We are the lucky draw messenger platform.";
-                let message3 = "Please see the menu for more.";
                 await senderAction(senderID);
                 await sendMessage(senderID, { text: message });
                 await sendMessage(senderID, { text: message2 });
-                await sendMessage(senderID, { text: message3 });
-                await sendMessage(senderID, { text: "🎈" });
+                await sendGenericTemplate(senderID, WelcomeGeneric);
                 await sendPersistentMenu(senderID, true, "default");
             }
         );
