@@ -37,7 +37,7 @@ module.exports = [
             {
                 type: "web_url",
                 title: "🤝လက်မှတ် ရောင်းမည်",
-                payload: "https://saimain.bffsports.com/submit-lucky-draw",
+                url: "https://saimain.bffsports.com/submit-lucky-draw",
             },
         ],
     },
