@@ -30,6 +30,7 @@ app.use("/", webRoutes);
 app.use("/api", apiRoutes);
 
 mongoose.set("strictQuery", true);
+
 mongoose.connect(dbPath, options).then(
     () => {
         app.listen(port, function () {
